@@ -98,7 +98,6 @@ void DrawCross(uint16_t Xpos, uint16_t Ypos);
 void TP_DrawPoint(uint16_t Xpos, uint16_t Ypos);
 FunctionalState setCalibrationMatrix( Coordinate * displayPtr, Coordinate * screenPtr, Matrix * matrixPtr);
 FunctionalState getDisplayPoint(Coordinate * displayPtr, Coordinate * screenPtr, Matrix * matrixPtr );
-
 #endif
 
 /*********************************************************************************************************

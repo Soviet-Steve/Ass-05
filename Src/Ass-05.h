@@ -39,9 +39,9 @@
 
 // Questions to be completed
 
-#define DO_QUESTION_1
+//#define DO_QUESTION_1
 // #define DO_QUESTION_2
-// #define DO_QUESTION_3
+ #define DO_QUESTION_3
 // #define DO_QUESTION_4
 
 // Parameters

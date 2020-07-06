@@ -7,25 +7,13 @@
 #include "Ass-05.h"
 
 // Draw the bitmap using DMA
-HAL_StatusTypeDef
-BSP_LCD_DrawBitmapDMA (uint32_t Image)
+HAL_StatusTypeDef BSP_LCD_DrawBitmapDMA (uint32_t Image)
 {
+  ili9325_SetCursor (IMAGE_X_OFFSET, IMAGE_Y_OFFSET);
+  LCD_IO_WriteReg (LCD_REG_34);
+  HAL_DMA_Start(&hdma_memtomem_dma2_stream1, Image, (uint32_t)&LCD_RAM, 57600);
+  return HAL_DMA_PollForTransfer(&hdma_memtomem_dma2_stream1, HAL_DMA_FULL_TRANSFER, 1000);  
 
-  // while (1)
-  {
-    BSP_LCD_SetTextColor (LCD_COLOR_RED);
-    BSP_LCD_FillRect (0, 60, 320, 180);
-    HAL_Delay (TOGGLE_DELAY);
-    BSP_LCD_SetTextColor (LCD_COLOR_BLUE);
-    BSP_LCD_FillRect (0, 60, 320, 180);
-    HAL_Delay (TOGGLE_DELAY);
-    BSP_LCD_SetTextColor (LCD_COLOR_GREEN);
-    BSP_LCD_FillRect (0, 60, 320, 180);
-    HAL_Delay (TOGGLE_DELAY);
-    HAL_GPIO_TogglePin (LD3_GPIO_Port, LD3_Pin);
-  }
-
-  return HAL_OK;
 }
 
 void
